@@ -1,0 +1,29 @@
+{
+  "name": "egg-ivalidate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callmez/egg-ivalidate.git"
+  },
+  "keywords": [
+    "egg",
+    "validate",
+    "eggPlugin",
+    "async",
+    "validator"
+  ],
+  "author": "callme-z@qq.com",
+  "bugs": {
+    "url": "https://github.com/callmez/egg-ivalidate/issues"
+  },
+  "homepage": "https://github.com/callmez/egg-ivalidate#readme",
+  "dependencies": {
+    "async-validator": "^1.8.2"
+  },
+  "eggPlugin": {
+    "name": "validate"
+  }
+}
