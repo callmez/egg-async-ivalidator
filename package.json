@@ -1,7 +1,7 @@
 {
   "name": "egg-ivalidate",
   "version": "1.0.0",
-  "description": "",
+  "description": "the async validator plugin for egg, compatible egg-validate method",
   "main": "app.js",
   "scripts": {},
   "repository": {

@@ -59,6 +59,3 @@ rules see [async-validator#rules](https://github.com/yiminghe/async-validator#ru
 
 > !!important:  `method`,`date`,`hex` in `type` does not apply to server - side form validation
 
-## License
-
-[MIT](LICENSE)
