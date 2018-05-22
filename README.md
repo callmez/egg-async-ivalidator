@@ -1,4 +1,4 @@
-# egg-async-validate
+# egg-async-ivalidator
 
 Validate plugin for egg, compatible [egg-validate](https://github.com/eggjs/egg-validate) method.
 
@@ -7,7 +7,7 @@ see [async-validate](https://github.com/yiminghe/async-validator) for more infor
 ## Install
 
 ```bash
-$ npm i egg-ivalidate --save
+$ npm i egg-async-ivalidator --save
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ $ npm i egg-ivalidate --save
 // {app_root}/config/plugin.js
 exports.validate = {
   enable: true,
-  package: 'egg-ivalidate',
+  package: 'egg-async-ivalidator',
 };
 ```
 
