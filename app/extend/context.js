@@ -14,12 +14,12 @@ module.exports = {
   async validate(rules, data, messages = {}) {
     return new Promise((resolve, reject) => {
       try {
-        data = data || this.request.body;
+        const _data = _.cloneDeep(data || this.request.body); // 拷贝新数据, 保留旧数据
         const Schema = this.app.validator;
 
-        hackAfterTransform(data, rules);
+        hackAfterTransform(_data, rules);
 
-        new Schema(rules).validate(data, (errors, fields) => {
+        new Schema(rules).validate(_data, (errors, fields) => {
           if (errors) {
             this.throw(422, 'Validation Failed', {
               code: 'invalid_param',
@@ -27,7 +27,7 @@ module.exports = {
             });
           }
 
-          const result = filterValidatedData(data, rules);
+          const result = filterValidatedData(_data, rules);
           resolve(result); // return pure safety data
         }, {
           ...this.app.config.validate.messages,
@@ -82,11 +82,12 @@ function hackAfterTransform(data, rules) {
   data[__key] = undefined;
   rules[__key] = {
     validator: function(rule, value, callback, source, options) {
+      for (const k in source) {
+        data[k] = source[k]; // 重新记录验证后的值
+      }
       delete data[__key];
       delete rules[__key];
-      for (const k in data) {
-        if (source.hasOwnProperty(k)) data[k] = source[k];
-      }
+
       callback([]);
     }
   }
